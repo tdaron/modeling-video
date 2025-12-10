@@ -16,7 +16,7 @@ const scene = makeScene2D('scene', function* (view) {
   );
   const text =
     <Txt text="Hello, World" opacity={0}/>
-  yield* view.add(text);
+  view.add(text);
 
 
   yield* tween(1, value => {
@@ -29,8 +29,8 @@ const scene = makeScene2D('scene', function* (view) {
   const ocean =
   <Img src={'/ocean.jpg'} width={300} position={{x: 0, y:0}}/>
 
-  yield* view.add(video)  
-  yield* view.add(ocean)
+  view.add(video)  
+  view.add(ocean)
 
   
   
@@ -39,7 +39,7 @@ const scene = makeScene2D('scene', function* (view) {
     video.scale.y(1, 1),
     chain(
       ocean.position(new Vector2(-100, 0), 1),
-      ocean.position(new Vector2(-200, -500), 2),
+      ocean.position(new Vector2(-200, -500), 1),
     )
   );
   yield* waitFor(15)
